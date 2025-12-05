@@ -13,29 +13,17 @@ namespace Client_Manager
         {
             try
             {
-                string connectString = ""; // connection string data removed for security purposes 
+                string connectString = ""; // connection string data removed for security purposes
+                // put the connection logic below into the ClientRepository class
                 MySqlConnection connection = new MySqlConnection();
                 connection.ConnectionString = connectString;
                 connection.Open();
-                populate_Form(connection);
+
             }catch(MySqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
 
-        private void populate_Form(MySqlConnection connection)
-        {
-            string sqlTest = "SELECT * FROM client_table";
-            MySqlCommand cmdTest = new MySqlCommand(sqlTest, connection);
-
-            MySqlDataReader reader = cmdTest.ExecuteReader();
-
-            while (reader.Read())
-            {
-                MessageBox.Show("Client " + reader["clientID"] + " " + reader["first_name"]);
-            }
-
-        }
     }
 }
