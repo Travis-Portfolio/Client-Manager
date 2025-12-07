@@ -1,3 +1,4 @@
+using Client_Manager.Repository;
 using MySql.Data.MySqlClient;
 
 namespace Client_Manager
@@ -13,11 +14,8 @@ namespace Client_Manager
         {
             try
             {
-                string connectString = ""; // connection string data removed for security purposes
-                // put the connection logic below into the ClientRepository class
-                MySqlConnection connection = new MySqlConnection();
-                connection.ConnectionString = connectString;
-                connection.Open();
+                ClientRepository cr = new ClientRepository();
+                cr.GetClients();
 
             }catch(MySqlException ex)
             {
