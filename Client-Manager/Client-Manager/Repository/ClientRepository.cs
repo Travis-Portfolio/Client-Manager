@@ -86,5 +86,33 @@ namespace Client_Manager.Repository
 
             return null;
         }
+
+        public void CreateClient(Client client)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection();
+                connection.ConnectionString = connectString;
+                connection.Open();
+
+                // ensure auto increment works for clientID 
+                string sqlTest = "INSERT INTO client_table " +
+                    "(firstName, lastName, email, phoneNumber, address) " +
+                    "VALUES (@firstName, @lastName, @email, @phonNumber, @address)";
+
+                MySqlCommand cmdTest = new MySqlCommand(sqlTest, connection);
+                cmdTest.Parameters.AddWithValue("@firstName", client.firstName);
+                cmdTest.Parameters.AddWithValue("@lastName", client.lastName);
+                cmdTest.Parameters.AddWithValue("@email", client.email);
+                cmdTest.Parameters.AddWithValue("@phoneNumber", client.phoneNumber);
+                cmdTest.Parameters.AddWithValue("@address", client.address);
+
+                cmdTest.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            }
     }
 }
