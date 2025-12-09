@@ -114,5 +114,34 @@ namespace Client_Manager.Repository
                 Console.WriteLine(ex.ToString());
             }
             }
+
+        public void UpdateClient(Client client)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection();
+                connection.ConnectionString = connectString;
+                connection.Open();
+
+                string sqlTest = "UPDATE client_table " +
+                    "SET firstName = @firstName, lastName = @lastName, " +
+                    "email = @email, phoneNumber = @phoneNumber, address = @address " +
+                    "WHERE clientID = @Id";
+
+
+                MySqlCommand cmdTest = new MySqlCommand(sqlTest, connection);
+                cmdTest.Parameters.AddWithValue("@firstName", client.firstName);
+                cmdTest.Parameters.AddWithValue("@lastName", client.lastName);
+                cmdTest.Parameters.AddWithValue("@email", client.email);
+                cmdTest.Parameters.AddWithValue("@phoneNumber", client.phoneNumber);
+                cmdTest.Parameters.AddWithValue("@address", client.address);
+
+                cmdTest.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
 }
