@@ -143,5 +143,26 @@ namespace Client_Manager.Repository
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        public void DeleteClient(int id)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection();
+                connection.ConnectionString = connectString;
+                connection.Open();
+
+                string sqlTest = "DELETE FROM client_table WHERE clientID = @id";
+
+                MySqlCommand cmdTest = new MySqlCommand(sqlTest, connection);
+
+                cmdTest.Parameters.AddWithValue("@id", id);
+                cmdTest.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
 }
