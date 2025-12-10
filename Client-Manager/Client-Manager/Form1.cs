@@ -10,18 +10,9 @@ namespace Client_Manager
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                ClientRepository cr = new ClientRepository();
-                cr.GetClients();
 
-            }catch(MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
         }
-
     }
 }
