@@ -32,8 +32,8 @@
             btnAddClient = new Button();
             btnDeleteClient = new Button();
             btnEditClient = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            clientsTable = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)clientsTable).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -76,29 +76,33 @@
             btnEditClient.Text = "Edit Client";
             btnEditClient.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // clientsTable
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 133);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(771, 305);
-            dataGridView1.TabIndex = 4;
+            clientsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            clientsTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            clientsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            clientsTable.Location = new Point(12, 133);
+            clientsTable.MultiSelect = false;
+            clientsTable.Name = "clientsTable";
+            clientsTable.RowHeadersVisible = false;
+            clientsTable.RowHeadersWidth = 51;
+            clientsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            clientsTable.Size = new Size(771, 305);
+            clientsTable.TabIndex = 4;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(795, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(clientsTable);
             Controls.Add(btnEditClient);
             Controls.Add(btnDeleteClient);
             Controls.Add(btnAddClient);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Clients Manager";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clientsTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -108,6 +112,6 @@
         private Button btnAddClient;
         private Button btnDeleteClient;
         private Button btnEditClient;
-        private DataGridView dataGridView1;
+        private DataGridView clientsTable;
     }
 }
