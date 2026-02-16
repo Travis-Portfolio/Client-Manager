@@ -9,39 +9,9 @@ namespace Client_Manager
         public Form1()
         {
             InitializeComponent();
-            FillTable();
             ReadClient();
         }
 
-        private void FillTable()
-        {
-            DataTable table = new DataTable();
-
-            table.Columns.Add("ID");
-            table.Columns.Add("Name");
-            table.Columns.Add("Email");
-            table.Columns.Add("Phone");
-            table.Columns.Add("Address");
-
-            var repository = new ClientRepository();
-            var clients = repository.GetClients();
-
-            foreach(var client in clients)
-            {
-                var row = table.NewRow();
-
-                row["ID"] = client.Id;
-                row["Name"] = client.firstName + " " + client.lastName;
-                row["Email"] = client.email;
-                row["Phone"] = client.phoneNumber;
-                row["Address"] = client.address;
-
-                table.Rows.Add(row);
-            }
-
-            this.clientsTable.DataSource = table;
-
-        }
         private void ReadClient()
         {
             DataTable dataTable = new DataTable();
@@ -68,7 +38,7 @@ namespace Client_Manager
                 
             }
 
-
+            this.clientsTable.DataSource = dataTable;
         }
     }
 }
