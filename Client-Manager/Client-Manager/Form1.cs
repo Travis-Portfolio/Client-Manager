@@ -10,6 +10,7 @@ namespace Client_Manager
         {
             InitializeComponent();
             FillTable();
+            ReadClient();
         }
 
         private void FillTable()
@@ -39,6 +40,35 @@ namespace Client_Manager
             }
 
             this.clientsTable.DataSource = table;
+
+        }
+        private void ReadClient()
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID");
+            dataTable.Columns.Add("Name");
+            dataTable.Columns.Add("Email");
+            dataTable.Columns.Add("Phone");
+            dataTable.Columns.Add("Address");
+
+            var repo = new ClientRepository();
+            var clients = repo.GetClients();
+
+            foreach (var client in clients)
+            {
+                var row = dataTable.NewRow();
+
+                row["ID"] = client.Id;
+                row["Name"] = client.firstName + " " + client.lastName;
+                row["Email"] = client.email;
+                row["Phone"] = client.phoneNumber;
+                row["Address"] = client.address;
+
+                dataTable.Rows.Add(row);
+                
+            }
+
+
         }
     }
 }
