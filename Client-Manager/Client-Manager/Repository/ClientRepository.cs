@@ -95,11 +95,11 @@ namespace Client_Manager.Repository
                 connection.ConnectionString = connectString;
                 connection.Open();
 
-                // ensure auto increment works for clientID 
                 string sqlTest = "INSERT INTO client_table " +
                     "(firstName, lastName, email, phoneNumber, address) " +
-                    "VALUES (@firstName, @lastName, @email, @phonNumber, @address)";
+                    "VALUES (@firstName, @lastName, @email, @phoneNumber, @address)";
 
+                // Double check the field names in your database to make sure they are not the source of error.
                 MySqlCommand cmdTest = new MySqlCommand(sqlTest, connection);
                 cmdTest.Parameters.AddWithValue("@firstName", client.firstName);
                 cmdTest.Parameters.AddWithValue("@lastName", client.lastName);
@@ -111,7 +111,7 @@ namespace Client_Manager.Repository
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
             }
             }
 

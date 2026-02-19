@@ -55,6 +55,7 @@
             btnAddClient.TabIndex = 1;
             btnAddClient.Text = "Add Client";
             btnAddClient.UseVisualStyleBackColor = true;
+            btnAddClient.Click += btnAddClient_Click;
             // 
             // btnDeleteClient
             // 

@@ -54,7 +54,6 @@
             lbTitle.TabIndex = 0;
             lbTitle.Text = "Create Client";
             lbTitle.TextAlign = ContentAlignment.MiddleCenter;
-            lbTitle.Click += this.label1_Click;
             // 
             // label1
             // 
@@ -72,7 +71,6 @@
             lbID.Name = "lbID";
             lbID.Size = new Size(0, 20);
             lbID.TabIndex = 2;
-            lbID.Click += this.label2_Click;
             // 
             // label2
             // 
@@ -82,7 +80,6 @@
             label2.Size = new Size(80, 20);
             label2.TabIndex = 3;
             label2.Text = "First Name";
-            label2.Click += this.label2_Click_1;
             // 
             // tbFirstName
             // 
@@ -99,7 +96,6 @@
             label3.Size = new Size(79, 20);
             label3.TabIndex = 5;
             label3.Text = "Last Name";
-            label3.Click += this.label3_Click;
             // 
             // tbLastName
             // 
@@ -116,7 +112,6 @@
             label4.Size = new Size(46, 20);
             label4.TabIndex = 7;
             label4.Text = "Email";
-            label4.Click += this.label4_Click;
             // 
             // label5
             // 
@@ -126,7 +121,6 @@
             label5.Size = new Size(50, 20);
             label5.TabIndex = 8;
             label5.Text = "Phone";
-            label5.Click += this.label5_Click;
             // 
             // label6
             // 
@@ -166,6 +160,7 @@
             btnSave.TabIndex = 13;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -175,6 +170,7 @@
             btnCancel.TabIndex = 14;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // CreateEditForm
             // 

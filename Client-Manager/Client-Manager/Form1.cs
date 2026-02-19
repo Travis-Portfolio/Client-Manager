@@ -35,10 +35,20 @@ namespace Client_Manager
                 row["Address"] = client.address;
 
                 dataTable.Rows.Add(row);
-                
+
             }
 
             this.clientsTable.DataSource = dataTable;
+        }
+
+        private void btnAddClient_Click(object sender, EventArgs e)
+        {
+            CreateEditForm form = new CreateEditForm();
+            if(form.ShowDialog() == DialogResult.OK)
+            {
+                // Update client list
+                ReadClient();
+            }
         }
     }
 }
