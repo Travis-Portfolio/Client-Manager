@@ -96,10 +96,10 @@ namespace Client_Manager.Repository
                 connection.Open();
 
                 string sqlTest = "INSERT INTO client_table " +
-                    "(firstName, lastName, email, phoneNumber, address) " +
+                    "(first_name, last_name, email, phone_number, address) " +
                     "VALUES (@firstName, @lastName, @email, @phoneNumber, @address)";
 
-                // Double check the field names in your database to make sure they are not the source of error.
+
                 MySqlCommand cmdTest = new MySqlCommand(sqlTest, connection);
                 cmdTest.Parameters.AddWithValue("@firstName", client.firstName);
                 cmdTest.Parameters.AddWithValue("@lastName", client.lastName);
