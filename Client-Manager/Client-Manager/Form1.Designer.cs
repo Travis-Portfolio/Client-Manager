@@ -66,6 +66,7 @@
             btnDeleteClient.TabIndex = 2;
             btnDeleteClient.Text = "Delete Client";
             btnDeleteClient.UseVisualStyleBackColor = true;
+            btnDeleteClient.Click += btnDeleteClient_Click;
             // 
             // btnEditClient
             // 
