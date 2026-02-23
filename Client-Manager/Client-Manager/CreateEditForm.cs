@@ -21,10 +21,26 @@ namespace Client_Manager
             this.DialogResult = DialogResult.Cancel;
         }
 
+        private int clientId = 0;
+        public void EditClient(Client client)
+        {
+            this.Text = "Edit Client";
+            this.lbTitle.Text = "Edit Client";
+
+            this.lbID.Text = "" + client.Id;
+            this.tbFirstName.Text = client.firstName;
+            this.tbLastName.Text = client.lastName;
+            this.tbEmail.Text = client.email;
+            this.tbPhone.Text = client.phoneNumber;
+            this.tbAddress.Text = client.address;
+
+            this.clientId = client.Id;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             Client client = new Client();
-            client.Id = 0;
+            client.Id = this.clientId;
             client.firstName = this.tbFirstName.Text;
             client.lastName = this.tbLastName.Text;
             client.email = this.tbEmail.Text;
@@ -32,9 +48,18 @@ namespace Client_Manager
             client.address = this.tbAddress.Text;
 
             var repo = new ClientRepository();
-            repo.CreateClient(client);
+            // repo.CreateClient(client);
 
-            this.DialogResult = DialogResult.OK;
+            if(client.Id == 0)
+            {
+                repo.CreateClient(client);
+            } 
+            else
+            {
+                repo.UpdateClient(client);
+            }
+
+                this.DialogResult = DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

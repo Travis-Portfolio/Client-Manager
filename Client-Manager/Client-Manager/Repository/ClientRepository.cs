@@ -124,8 +124,8 @@ namespace Client_Manager.Repository
                 connection.Open();
 
                 string sqlTest = "UPDATE client_table " +
-                    "SET firstName = @firstName, lastName = @lastName, " +
-                    "email = @email, phoneNumber = @phoneNumber, address = @address " +
+                    "SET first_name = @firstName, last_name = @lastName, " +
+                    "email = @email, phone_number = @phoneNumber, address = @address " +
                     "WHERE clientID = @Id";
 
 
@@ -135,6 +135,7 @@ namespace Client_Manager.Repository
                 cmdTest.Parameters.AddWithValue("@email", client.email);
                 cmdTest.Parameters.AddWithValue("@phoneNumber", client.phoneNumber);
                 cmdTest.Parameters.AddWithValue("@address", client.address);
+                cmdTest.Parameters.AddWithValue("@Id", client.Id);
 
                 cmdTest.ExecuteNonQuery();
             }

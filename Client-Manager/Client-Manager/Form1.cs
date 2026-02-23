@@ -44,9 +44,30 @@ namespace Client_Manager
         private void btnAddClient_Click(object sender, EventArgs e)
         {
             CreateEditForm form = new CreateEditForm();
-            if(form.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
                 // Update client list
+                ReadClient();
+            }
+        }
+
+        private void btnEditClient_Click(object sender, EventArgs e)
+        {
+            var val = this.clientsTable.SelectedRows[0].Cells[0].Value.ToString();
+            if (val == null || val.Length == 0) return;
+
+            int clientId = int.Parse(val);
+
+            var repo = new ClientRepository();
+            var client = repo.GetClient(clientId);
+
+            if (client == null) return;
+
+            CreateEditForm form = new CreateEditForm();
+            form.EditClient(client);
+            if(form.ShowDialog() == DialogResult.OK)
+            {
+                // update the list of clients
                 ReadClient();
             }
         }

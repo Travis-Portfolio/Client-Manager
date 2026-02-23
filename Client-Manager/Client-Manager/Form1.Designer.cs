@@ -76,6 +76,7 @@
             btnEditClient.TabIndex = 3;
             btnEditClient.Text = "Edit Client";
             btnEditClient.UseVisualStyleBackColor = true;
+            btnEditClient.Click += btnEditClient_Click;
             // 
             // clientsTable
             // 
