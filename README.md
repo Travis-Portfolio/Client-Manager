@@ -9,7 +9,7 @@ A desktop CRUD application built with C# and Windows Forms that allows users to 
 ## Features
 - Uses a windows form to display all the records in a database
 - Allows the user to add, edit, or delete a record in the database
-- Shows records in descending order by id number (most recently added get displayed at the top)
+- Shows records in ascending or descending order by any column value the user chooses
 
 ## Skills Demonstrated
 - Connecting to a database
