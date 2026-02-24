@@ -24,4 +24,4 @@ The program allows the user to create, read, delete and update records in an ext
 ## Example Run
 
 ### Main Window
-![Main Window]
+![Main Window](images/C_Sharp_CRUD_Main.png)
