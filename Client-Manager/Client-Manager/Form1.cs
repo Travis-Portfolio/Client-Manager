@@ -1,5 +1,4 @@
 using Client_Manager.Repository;
-using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace Client_Manager
