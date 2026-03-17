@@ -39,7 +39,6 @@ namespace Client_Manager
             client.address = this.tbAddress.Text;
 
             var repo = new ClientRepository();
-            // repo.CreateClient(client);
 
             if(client.Id == 0)
             {
