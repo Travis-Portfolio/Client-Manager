@@ -37,7 +37,7 @@ namespace Client_Manager.Repository
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.ToString());
             }
             
             return clients;
@@ -105,7 +105,7 @@ namespace Client_Manager.Repository
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.ToString());
             }
             }
 
